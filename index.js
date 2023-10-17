@@ -86,3 +86,14 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+console.log("Financial Analysis");
+console.log("---------------------");
+
+var numberOfMonths=0;
+
+  while (finances[numberOfMonths]){
+    numberOfMonths++;
+}
+
+console.log ("Total Months: " + numberOfMonths);
