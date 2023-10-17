@@ -91,9 +91,15 @@ console.log("Financial Analysis");
 console.log("---------------------");
 
 var numberOfMonths=0;
+var total=0;
 
   while (finances[numberOfMonths]){
+    total+=finances[numberOfMonths][1];
     numberOfMonths++;
+    
 }
 
 console.log ("Total Months: " + numberOfMonths);
+console.log ("Total: " + total);
+
+
