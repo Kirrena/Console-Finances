@@ -87,19 +87,78 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+
+
 console.log("Financial Analysis");
 console.log("---------------------");
 
 var numberOfMonths=0;
 var total=0;
+var profitMonths=0;
+var lossMonths=0;
+var profitChange=0;
+var lossChange=0;
+var incProfit=[];
+var decProfit=[];
+var incLoss=[];
+var decLoss=[];
+
+
 
   while (finances[numberOfMonths]){
     total+=finances[numberOfMonths][1];
+    
     numberOfMonths++;
     
 }
 
 console.log ("Total Months: " + numberOfMonths);
 console.log ("Total: " + total);
+
+var actual =finances[0][1];
+
+for (var i=1 ; i<finances.length ; i++){
+  
+    if (actual > finances[i][1])
+        {  
+           lossChange+=finances[i][1]-actual;
+           actual=finances[i][1];
+           /*/if(lossChange<maxLoss)
+             {
+              incLoss=finances[i];
+              maxLoss=lossChange;
+             }
+            else{
+              decLoss=finances[i];
+
+            } */
+            
+           lossMonths++;
+  }
+else 
+  {
+   profitChange+=finances[i][1]-actual;
+   actual=finances[i][1];    
+  /* if(maxProfit<profitChange)  
+      {
+        maxProfit=finances[i];
+      } */
+   profitMonths++;
+   
+  }
+} 
+
+console.log("The average change in Profit/Loss: " + ((profitChange+lossChange)/(numberOfMonths-1)).toFixed(2));
+
+/*if(maxProfit>Math.abs(maxLoss)){
+  console.log("The greates profit/loss change: " + maxProfit);
+}
+else {
+console.log("The greates profit/loss change: " + maxLoss);
+}
+
+*/
+
+
 
 
