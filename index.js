@@ -94,71 +94,48 @@ console.log("---------------------");
 
 var numberOfMonths=0;
 var total=0;
-var profitMonths=0;
-var lossMonths=0;
 var profitChange=0;
 var lossChange=0;
-var incProfit=[];
-var decProfit=[];
-var incLoss=[];
-var decLoss=[];
+var pMax=0;
+var lMin=0;
+var lossMonth="";
+var profitMonth="";
 
-
-
-  while (finances[numberOfMonths]){
-    total+=finances[numberOfMonths][1];
-    
-    numberOfMonths++;
-    
-}
+var numberOfMonths = finances.length;
 
 console.log ("Total Months: " + numberOfMonths);
-console.log ("Total: " + total);
 
-var actual =finances[0][1];
 
-for (var i=1 ; i<finances.length ; i++){
+
+  for(var i=0; i<finances.length; i++)  { 
+      total += finances[i][1];
   
-    if (actual > finances[i][1])
-        {  
-           lossChange+=finances[i][1]-actual;
-           actual=finances[i][1];
-           /*/if(lossChange<maxLoss)
-             {
-              incLoss=finances[i];
-              maxLoss=lossChange;
-             }
-            else{
-              decLoss=finances[i];
+      if (i > 0) {
+          var change = finances[i][1] - finances[i - 1][1];
+  
+          if (change < 0) {
+              lossChange += change;
+              if (change < lMin) {
+                  lMin = change;
+                  lossMonth = finances[i][0];
+              }
+          } else {
+              profitChange += change;
+              if (change > pMax) {
+                  pMax = change;
+                  profitMonth = finances[i][0];
+              }
+          }
+      }
+  }
 
-            } */
-            
-           lossMonths++;
-  }
-else 
-  {
-   profitChange+=finances[i][1]-actual;
-   actual=finances[i][1];    
-  /* if(maxProfit<profitChange)  
-      {
-        maxProfit=finances[i];
-      } */
-   profitMonths++;
-   
-  }
-} 
+
+console.log ("Total: " + total); 
 
 console.log("The average change in Profit/Loss: " + ((profitChange+lossChange)/(numberOfMonths-1)).toFixed(2));
 
-/*if(maxProfit>Math.abs(maxLoss)){
-  console.log("The greates profit/loss change: " + maxProfit);
-}
-else {
-console.log("The greates profit/loss change: " + maxLoss);
-}
 
-*/
-
-
+console.log("The greatest increase in Profit: " + profitMonth + " ($" + pMax + ")");
+console.log("The greatest decrease in Losses: " + lossMonth + " ($" + lMin + ")");
 
 
