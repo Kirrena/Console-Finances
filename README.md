@@ -29,12 +29,12 @@ To use this website, open the Chrome WebTools by pressing `Command+Option+I` (Ma
 Omar Patel [https://www.linkedin.com/in/omarsalimpatel]
 
 ## Link
-[My marketing website]()
+[My Console Finances website](https://kirrena.github.io/Console-Finances/)
 
-URL: 
+URL: https://kirrena.github.io/Console-Finances/
 
 ## Screenshot
-
+![Finances](https://github.com/Kirrena/social-media-marketing/assets/74355186/1e9f5ab8-e9b2-45c7-90e5-89125de92e94)
 
 ## License
 MIT license
