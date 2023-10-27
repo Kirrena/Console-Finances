@@ -92,7 +92,7 @@ var finances = [
 console.log("Financial Analysis");
 console.log("---------------------");
 
-var numberOfMonths=0;
+
 var total=0;
 var profitChange=0;
 var lossChange=0;
@@ -101,26 +101,32 @@ var lMin=0;
 var lossMonth="";
 var profitMonth="";
 
+// Use length method to count the elements of the array for having the total number of months
 var numberOfMonths = finances.length;
 
 console.log ("Total Months: " + numberOfMonths);
 
 
+// Use for loop to exam the elements in the array
 
   for(var i=0; i<finances.length; i++)  { 
+      // Total is storing the sum of losses/profits adding the 1.index=amount with every iteration=every element
       total += finances[i][1];
-  
+      // Use if condition to start to exam the the difference between 2 elements
       if (i > 0) {
+        // Make if being true from 2. iteration to make possible to reach the first 2 elements, starting count change
           var change = finances[i][1] - finances[i - 1][1];
-  
+          // Exam change to separete minus and plus changes to separete loss changes and profit changes   
           if (change < 0) {
               lossChange += change;
+              // Store the biggest negative change and month for loss decrease
               if (change < lMin) {
                   lMin = change;
                   lossMonth = finances[i][0];
               }
           } else {
               profitChange += change;
+              // Store the biggest positive change and month for profit increase
               if (change > pMax) {
                   pMax = change;
                   profitMonth = finances[i][0];
@@ -130,12 +136,13 @@ console.log ("Total Months: " + numberOfMonths);
   }
 
 
-console.log ("Total: " + total); 
+console.log ("Total: $ " + total.toLocaleString('en-US')); 
+// Put on console the avarege change using divider numberOfMonth-1 because the differences 1 less than the total number of elements
+// Use toFixed() to cut decimals to 2hundreds
+console.log("The average change in Profit/Loss: $ " + ((profitChange+lossChange)/(numberOfMonths-1)).toFixed(2));
 
-console.log("The average change in Profit/Loss: " + ((profitChange+lossChange)/(numberOfMonths-1)).toFixed(2));
 
-
-console.log("The greatest increase in Profit: " + profitMonth + " ($" + pMax + ")");
-console.log("The greatest decrease in Losses: " + lossMonth + " ($" + lMin + ")");
+console.log("The greatest increase in Profit: " + profitMonth + " ($" + pMax.toLocaleString('en-US') + ")");
+console.log("The greatest decrease in Losses: " + lossMonth + " ($" + lMin.toLocaleString('en-US') + ")");
 
 
