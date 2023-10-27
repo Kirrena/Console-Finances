@@ -34,7 +34,7 @@ Omar Patel [https://www.linkedin.com/in/omarsalimpatel]
 URL: https://kirrena.github.io/Console-Finances/
 
 ## Screenshot
-![Finances](https://github.com/Kirrena/social-media-marketing/assets/74355186/1e9f5ab8-e9b2-45c7-90e5-89125de92e94)
+![Finances](https://github.com/Kirrena/prework-study-guide/assets/74355186/5cc59f7f-af77-4726-886f-59401ac02b86)
 
 ## License
 MIT license
